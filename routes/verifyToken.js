@@ -9,6 +9,7 @@ const verifyToken = (req,res,next)=>{
 
         jwt.verify(token, process.env.JWT_SEC, (err,user)=>{
             if(err){
+                console.log(token);
                 res.status(403).json('Token not valid');
             }
             req.user = user;
